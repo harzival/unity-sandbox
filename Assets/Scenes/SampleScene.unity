@@ -743,7 +743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6834398b8f4a648428711016c6ec3e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheelPrefab: {fileID: 0}
+  wheelPrefab: {fileID: 6571616657206226321, guid: f5af7e4225ff4044aa83375d6b01bed3,
+    type: 3}
 --- !u!1 &1093307429
 GameObject:
   m_ObjectHideFlags: 0
