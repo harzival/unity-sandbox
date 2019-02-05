@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 5.0f;
     private int groundedCounter = 3;
     private Rigidbody rigidBody;
+    public GameObject menuDisplay;
+    public bool moveEnabled = true;
 
     void Start ()
     {
@@ -15,7 +16,29 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate ()
     {
-        rigidBody.velocity = ( GetDirection () * GetSpeed () ) + GetJumpForce ();
+        // Move the player based on user input by changing the velocity of the rigid body
+        if ( moveEnabled ) rigidBody.velocity = ( GetDirection () * GetSpeed () ) + GetJumpForce ();
+
+    }
+
+    void Update ()
+    {
+        menuModeCheck ();
+    }
+
+    private void menuModeCheck ()
+    {
+        if ( Input.GetKeyDown( KeyCode.Q ) )
+        {
+            moveEnabled = false;
+            menuDisplay.SetActive (true);
+            //rigidBody.velocity = new Vector3 ( 0F, 0F, 0F );
+        }
+        if ( Input.GetKeyUp ( KeyCode.Q ) )
+        {
+            moveEnabled = true;
+            menuDisplay.SetActive ( false );
+        }
     }
 
     private Vector3 GetDirection ()
@@ -34,8 +57,8 @@ public class PlayerController : MonoBehaviour
     private float GetSpeed ()
     {
         if ( Input.GetKey ( KeyCode.LeftShift ) )
-            return 10.0F;
-        return 5.0F;
+            return 20.0F;
+        return 10.0F;
     }
     private Vector3 GetJumpForce ()
     {
