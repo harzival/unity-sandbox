@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2377,12 +2377,21 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 1029969460}
   - component: {fileID: 1029969463}
   - component: {fileID: 1029969462}
   - component: {fileID: 1029969461}
   m_Layer: 5
   m_Name: Scrollbar Vertical
+=======
+  - component: {fileID: 801308344}
+  - component: {fileID: 801308346}
+  - component: {fileID: 801308347}
+  - component: {fileID: 801308345}
+  m_Layer: 0
+  m_Name: Player
+>>>>>>> 142de41830c785106945740a6edb34311a6d5f67
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2467,6 +2476,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   m_Material: {fileID: 0}
   m_Color: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 0.15294118}
   m_RaycastTarget: 1
@@ -2486,12 +2496,27 @@ MonoBehaviour:
   m_UseSpriteMesh: 0
 --- !u!222 &1029969463
 CanvasRenderer:
+=======
+--- !u!114 &801308347
+MonoBehaviour:
+>>>>>>> 142de41830c785106945740a6edb34311a6d5f67
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1029969459}
   m_CullTransparentMesh: 0
+=======
+  m_GameObject: {fileID: 801308343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6834398b8f4a648428711016c6ec3e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelPrefab: {fileID: 6571616657206226321, guid: f5af7e4225ff4044aa83375d6b01bed3,
+    type: 3}
+>>>>>>> 142de41830c785106945740a6edb34311a6d5f67
 --- !u!1 &1093307429
 GameObject:
   m_ObjectHideFlags: 0
