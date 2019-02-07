@@ -1,7 +1,0 @@
-ManifestFileVersion: 0
-CRC: 1751932136
-AssetBundleManifest:
-  AssetBundleInfos:
-    Info_0:
-      Name: testball.object
-      Dependencies: {}
