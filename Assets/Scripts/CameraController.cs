@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
             currentRotation.y = Mathf.Clamp ( currentRotation.y, -maxYAngle, maxYAngle );
             transform.localRotation = Quaternion.Euler ( currentRotation.y, 0, 0 );
             transform.parent.rotation = Quaternion.Euler ( 0, currentRotation.x, 0 );
-            playerArm.localRotation = Quaternion.Euler ( currentRotation.y - 100, 0, 0 );
+            //playerArm.localRotation = Quaternion.Euler ( currentRotation.y - 100, 0, 0 );
             Cursor.lockState = CursorLockMode.Locked;
         }
         else
