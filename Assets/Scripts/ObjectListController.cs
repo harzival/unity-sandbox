@@ -15,7 +15,8 @@ public class ObjectListController : MonoBehaviour
     void Start ()
     {
         contentRectTransform = this.GetComponent<RectTransform> ();
-        
+        RuntimePreviewGenerator.BackgroundColor = Color.clear;
+
         // Define the path to the "Objects" mod folder.
         string objectsDir = Path.Combine ( Application.streamingAssetsPath + "/Objects" );
         // Get a list of AssetBundles in the "Objects" mod folder.
@@ -52,6 +53,8 @@ public class ObjectListController : MonoBehaviour
             listPosY += -7.25F - 20;
             listPosX = 14.25F;
         }
+
+
 
     }
     GameObject LoadObjectFromAssetBundle ( string objectFilePath )
