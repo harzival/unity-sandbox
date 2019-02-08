@@ -1,22 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Wheel : MonoBehaviour
 {
-    private GameObject Camera;
+    public float Range = 100f;
+    public Camera playerCam;
     public GameObject wheelPrefab;
-    private Vector3 SpawnPosition;
-    private int DistanceToCamera = 5;
-
-    void Start () {
-         Camera = (GameObject) GameObject.FindWithTag("MainCamera");
-     }
 
     private void Update() {
         if (Input.GetKeyDown("o")) {
-            SpawnPosition = Camera.transform.forward * DistanceToCamera + Camera.transform.position;
-            Instantiate(wheelPrefab, SpawnPosition, Quaternion.identity);
+            SpawnPrefab();
+        }
+    }
+
+    void SpawnPrefab() {
+        RaycastHit hit;
+        if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, Range)) {
+            Instantiate(wheelPrefab, hit.point, Quaternion.identity);
         }
     }
 
