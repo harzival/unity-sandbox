@@ -5,31 +5,29 @@ using UnityEngine;
 public class ToolGunController : MonoBehaviour
 {
     public Transform playerHead;
+    public Ray gunAimRay;
+    public RaycastHit playerGazeHit;
+
+    private ObjectSpawnerTool objectSpawnerTool;
     private Vector3 playerHeadDirection;
     private Ray playerGaze;
-    private RaycastHit playerGazeHit;
 
-    // Start is called before the first frame update
     void Start()
-    { 
+    {
+        gameObject.tag = "toolGun";
+        objectSpawnerTool = gameObject.GetComponent<ObjectSpawnerTool> ();
     }
 
-    // Update is called once per frame
     void Update()
     {
         playerHeadDirection = playerHead.transform.TransformDirection ( Vector3.forward ) * 10;
         playerGaze = new Ray ( playerHead.position, playerHeadDirection );
-        if ( Physics.Raycast ( playerGaze, out playerGazeHit ) )
+        if ( Physics.Raycast ( playerGaze, out playerGazeHit, 100, LayerMask.GetMask ( "Default" ) ) )
         {
-            Ray gunAim = new Ray ( transform.parent.position, ( playerGazeHit.point - transform.position ) );
-            transform.parent.forward = transform.parent.InverseTransformDirection ( gunAim.direction );
-            transform.parent.LookAt ( playerGazeHit.point, Vector3.up );
+            gunAimRay = new Ray ( transform.parent.position, ( playerGazeHit.point - transform.position ) );
+            transform.parent.LookAt ( playerGazeHit.point );
         }
-        if ( Input.GetMouseButtonDown ( 0 ) )
-        {
 
-
-        }
 
     }
 }

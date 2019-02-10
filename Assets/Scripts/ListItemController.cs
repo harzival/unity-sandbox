@@ -5,13 +5,19 @@ using UnityEngine.UI;
 
 public class ListItemController : MonoBehaviour
 {
-    Button button;
     public GameObject objectPrefab;
+    public GameObject toolGun;
+    private Button button;
+
+    private bool fireToolGunOnTileClick = true;
+
     // Start is called before the first frame update
     void Start()
     {
          button = gameObject.GetComponent<Button> ();
          button.onClick.AddListener ( OnButtonClick );
+
+        toolGun = GameObject.FindWithTag ( "toolGun" );
     }
 
     // Update is called once per frame
@@ -21,6 +27,13 @@ public class ListItemController : MonoBehaviour
     }
     void OnButtonClick()
     {
-        Instantiate ( objectPrefab, transform.position + ( new Vector3 ( 0, 3, 0 ) ), Quaternion.identity );
+        ObjectSpawnerTool objectSpawnerTool = toolGun.GetComponent<ObjectSpawnerTool> ();
+        if ( ! objectSpawnerTool )
+        {
+            toolGun.AddComponent(typeof(ObjectSpawnerTool));
+        }
+        objectSpawnerTool.objectPrefab = objectPrefab;
+        if ( fireToolGunOnTileClick )
+            objectSpawnerTool.FireToolGun ();
     }
 }
